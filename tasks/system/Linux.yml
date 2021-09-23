@@ -103,6 +103,8 @@
       group: '{{ sonar_group }}'
       remote_src: true
       creates: '{{ sonar_installation }}/conf/wrapper.conf'
+    become_user: '{{ sonar_user }}'
+    become: true
     notify: Restart Sonarqube
 
   - name: Render sonar.properties
